@@ -254,7 +254,7 @@
     <div class="container-fluid">
       <div class="row mb-2">
         <div class="col-sm-6">
-          <h1 class="m-0">Create Changes</h1>
+          <h1 class="m-0">Show Record</h1>
         </div><!-- /.col -->
        
       </div><!-- /.row -->
@@ -281,42 +281,42 @@
         
 
             <div class="card-footer">
-            <form action="/Resturant/{{$id}}" method="post">
+            <form action="/Resturant" method="get">
 
-            @method('put')
-            @csrf
-                <div class="form-row">
-                  <div class="form-group col-md-6">
-                 <label>Resturant Name</label>
-                <input type="text" name="namess" class="form-control" value="{{$resturantname}}" >
-                    </div>
+@method('get')
+@csrf
+    <div class="form-row">
+      <div class="form-group col-md-6">
+     <label>Id</label>
+    <input type="text" class="form-control" value="{{$id}}" >
+        </div>
+
+        <div class="form-group col-md-6">
+     <label>Resturant Name</label>
+    <input type="text" class="form-control" value="{{$resturantname}}" >
+        </div>
 
 
-    <div class="form-group col-md-4">
-      <label>Select Category</label>
-      <select  class="form-control" name="category" value="{{$category}}" >
-        
-        <option>Desi</option>
-        <option>Continential</option>
-        <option>Fast Food</option>
-     
-      </select>
-    </div>
-  </div>
-  
-  
-   <div class="form-row">
-    <div class="form-group col-md-6">
-      <label>Location</label>
-      <input type="text" class="form-control" name="location" value="{{$location}}" >
-    </div>
-   
-  </div>
-  <input type="submit" class="btn btn-primary" value="Save Changes"/>
+<div class="form-group col-md-6">
+<label>Category</label>
+<input type="text" class="form-control" value="{{$category}}" >
+
+</div>
+</div>
+
+
+<div class="form-row">
+<div class="form-group col-md-6">
+<label>Location</label>
+<input type="text" class="form-control" name="location" value="{{$location}}" >
+</div>
+
+</div>
+<input type="submit" class="btn btn-primary" value="Back"/>
 
 
 </form>
-            
+
             </div>
 
       </div>

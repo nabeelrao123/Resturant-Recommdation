@@ -32,8 +32,6 @@ class ResturantController extends Controller
     public function create()
     {
    
-      //  echo "fvd";
-    //  return Redirect('Restuant');
      return view('Resturant.resturantcreate');
    
     }
@@ -69,6 +67,10 @@ class ResturantController extends Controller
     public function show($id)
     {
 
+       $data = resturant::where('id', $id)->first();
+      return view ('Resturant.show',['id'=>$data->id,'category'=>$data->category,'location' => $data->location,'resturantname'=>$data->resturname]);
+  
+
 
     }
 
@@ -95,10 +97,11 @@ class ResturantController extends Controller
      */
     public function update(Request $request, $id)
     {
-        
+
+     
         $res = new resturant();
 
-       $res = resturant::find($id);
+      $res = resturant::find($id);
 
         $res->resturname = $request->namess;
         $res->category  = $request->category;

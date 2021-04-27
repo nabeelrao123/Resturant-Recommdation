@@ -25,12 +25,8 @@
   <!-- Main content -->
   <section class="content">
 
-    <form method="get" action="Resturant/create">
+<a href="{{route('Resturant.create')}}" class="btn btn-info mb-4" >Create New Resturant</a>
 
-      @method('get')
-
-      <input type="submit" class="btn btn-info mb-4 " value="Create New Resturant" />
-    </form>
     <div class="container-fluid">
       <!-- Small boxes (Stat box) -->
 
@@ -68,7 +64,10 @@
             <td>{{$data->category}}</td>
             <td>{{$data->location}}</td>
             <td>
-              <form>
+              <form action="Resturant/{{$data->id}}" method="get">
+@method('get')
+@csrf
+
                 <input type="submit" value="Show" class="btn btn-success" />
               </form>
             </td>
